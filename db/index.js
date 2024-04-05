@@ -1,0 +1,6 @@
+let db ={
+    usuario:{
+
+    },
+    producto:[]
+}
