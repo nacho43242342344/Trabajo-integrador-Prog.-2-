@@ -1,6 +1,78 @@
 let db ={
-    usuario:{
-
-    },
-    producto:[]
+    lista: [
+        {   
+            usuario: 'Nacho',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'Gero',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'Nacho',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'gero',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'gero',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'Facundo',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'Facundo',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+        {   
+            usuario: 'Nacho',
+            producto: 'Reloj',
+            mail: 'nacho@gmail.com',
+            contraseña: '123',
+            nacimiento: '',
+            dni: '',
+            foto_de_perfil: '',
+        },
+    ]
 }
+
+module.exports = db;
