@@ -93,3 +93,97 @@ VALUES (DEFAULT, 13,'https://th.bing.com/th/id/OIP.HwhqlfwLV2ktMBtD2oBMrQHaF7?rs
 
 INSERT INTO productos
 VALUES (DEFAULT, 12,'https://th.bing.com/th/id/OIP.-jbutvN_IP_okpTSgGux5wHaE7?rs=1&pid=ImgDetMain', 'Audemars Piguet Royal Oak', 'Descripción del Audemars Piguet Royal Oak.', '2024-04-10 09:15:00', '2024-04-10 10:00:00', NULL);
+
+--Inseción de comentarios
+
+SELECT * FROM db_integrador.comentarios;
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 1, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 1, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 1, 11, 'Buena relación calidad-precio. Es muy elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 2, 12, 'Me encanta el diseño y la funcionalidad. Lo uso a diario y no he tenido problemas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 2, 13, 'No es resistente al agua como se indica. Decepcionado con la calidad.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 2, 14, 'Mala calidad. La correa se rompió después de un mes de uso.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 3, 10, 'Excelente producto. Cumple con todas mis expectativas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 3, 11, 'El color no coincide con la imagen. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 3, 12, 'Buen reloj, pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 4, 13, 'Me gustó mucho. Es ligero y se ajusta bien a la muñeca.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 4, 14, 'No he recibido el producto. El servicio de entrega es muy lento.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 4, 10, 'Muy buen reloj. Lo recomiendo.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 5, 11, 'El diseño es elegante pero la correa es un poco rígida.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 5, 12, 'Excelente calidad. El reloj es resistente y funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 5, 13, 'No estoy contento con el producto. No funciona correctamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 6, 14, 'Me encanta. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 6, 10, 'Buena relación calidad-precio. Lo uso todos los días y estoy satisfecho.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 6, 11, 'El reloj es bonito pero la correa es un poco frágil.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 7, 12, 'No era lo que esperaba. La calidad no es la mejor.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 7, 13, 'El producto llegó en mal estado. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 7, 14, 'Excelente reloj. Funciona perfectamente y tiene un diseño elegante.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 8, 10, 'Me gusta mucho. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 8, 11, 'Buena calidad. Funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 8, 12, 'No cumple mis expectativas. La calidad no es la esperada.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 9, 13, 'El diseño es bonito pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 9, 14, 'Me encanta. Es exactamente lo que estaba buscando.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 9, 10, 'El reloj es elegante y funcional. Lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 10, 11, 'No estoy contento con la calidad del producto. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 10, 12, 'Me gusta mucho el diseño. Es ligero y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 10, 13, 'El producto no funciona correctamente. No estoy satisfecho con la compra.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
