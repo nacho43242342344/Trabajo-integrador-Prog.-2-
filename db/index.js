@@ -1,78 +1,42 @@
 let db ={
-    lista: [
+    usuario:
         {   
             usuario: 'Nacho',
             producto: 'Reloj',
             mail: 'nacho@gmail.com',
             contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
+            nacimiento: '27/06/05',
+            dni: '46795529',
+            foto_de_perfil: '/public/users/nachi.png',
         },
-        {   
-            usuario: 'Gero',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
+    productos: [
+        {
+            nombre: "Producto 1",
+            descripcion: "Descripción del producto 1",
+            precio: 10.99,
+
+            comentarios: [
+                {
+                    nombreUsuario: "Usuario1",
+                    texto: "Comentario sobre el producto 1",
+                    imagenPerfil: "/images/products/default-image.png" 
+                },
+            ]
         },
-        {   
-            usuario: 'Nacho',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
-        },
-        {   
-            usuario: 'gero',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
-        },
-        {   
-            usuario: 'gero',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
-        },
-        {   
-            usuario: 'Facundo',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
-        },
-        {   
-            usuario: 'Facundo',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
-        },
-        {   
-            usuario: 'Nacho',
-            producto: 'Reloj',
-            mail: 'nacho@gmail.com',
-            contraseña: '123',
-            nacimiento: '',
-            dni: '',
-            foto_de_perfil: '',
+        {
+            nombre: "Producto 2",
+            descripcion: "Descripción del producto 2",
+            precio: 15.99,
+
+            comentarios: [
+                {
+                    nombreUsuario: "Usuario2",
+                    texto: "Comentario sobre el producto 2",
+                    imagenPerfil: "/images/products/default-image.png"
+                },
+            ]
         },
     ]
-}
+};
 
 module.exports = db;

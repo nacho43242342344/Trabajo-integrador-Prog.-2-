@@ -13,7 +13,7 @@ router.get('/relojes', foroController.show)
 
 //router.ger('/product-add', foroController.product-add)
 
-router.get('/profile/:profile-edit?', foroController.profile)
+router.get('/profile/:profile-edit?/:email?/:usuario?/:contrasena?/:fechaNacimiento?/:nroDocumento?/:fotoPerfil?', foroController.profile)
 
 router.get('/register', foroController.register)
 
