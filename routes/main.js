@@ -9,9 +9,9 @@ router.get('/headerLogueado', foroController.header)
 
 router.get('/login', foroController.login)
 
-router.get('/relojes', foroController.show)
+router.get('/relojes/:idRelojes', foroController.show)
 
-//router.ger('/product-add', foroController.product-add)
+//router.ger('/add', foroController.productAdd)
 
 router.get('/profile/:profile-edit?/:email?/:usuario?/:contrasena?/:fechaNacimiento?/:nroDocumento?/:fotoPerfil?', foroController.profile)
 
