@@ -1,9 +1,8 @@
 const db = require('../db/index')
-const { search } = require('../routes')
 
 const foroController = {
     index:function(req,res){
-        return res.render('index', { datos:db })
+        return res.render('index', { info:db.productos })
     },
     header:function (req,res) {
         return res.render('headerLogueado', { datos:db })
@@ -12,7 +11,14 @@ const foroController = {
         return res.render('login', { datos:db })
     },
     show:function (req,res) {
-        return res.render('product', { datos:db })
+        let rta;
+        let busquedaRelojes = req.params.idRelojes
+        for (let i = 0; i < db.productos.length; i++) {
+            if(busquedaRelojes.toLowerCase() === db.productos[i].nombre.toLowerCase()){
+                rta = db.productos[i]
+            };           
+        }
+        return res.render('product', { datos:rta})
     },
     profile:function (req,res) {
         return res.render('profile', { datos:db })
@@ -23,6 +29,9 @@ const foroController = {
     search:function (req,res) {
         return res.render('search-results', { datos:db })
     }
+    // productAdd:function(req,res){
+    //     return res.render('product-add', {})
+    // }
 }
 
 
