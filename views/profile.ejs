@@ -2,24 +2,29 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partials/head') %>
+
 <body>
 	<!-- Header -->
-	<%- include('./partials/header') %>
+	<%- include('./partials/headerLogueado') %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="../public/images/users/nachi.png" alt="foto de perfil" class="foto-perfil">
+				<img src="<%- datos.foto_de_perfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">Nombre del usuario 
-						<a href="http://localhost:3000/productos/profile-edit">
+					<h1 class="main-title"><%- datos.usuario %>
+						<a href="http://localhost:3000/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
+					
+					<h3>
+						<%- datos.mail %>
+					</h3>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				<div>
@@ -43,7 +48,7 @@
 			<!-- Show mis productos -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -57,7 +62,22 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
+						<figure class="product-box_image">
+							<img src="/images/products/default-image.png" alt="cafetera moulinex">
+						</figure>
+						<article class="product-box_data">
+							<h2>Nombre del producto</h2>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+								delectus ex</p>
+							<p>Comentarios: 12</p>
+						</article>
+					</a>
+				</section>
+			</div>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -87,7 +107,7 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -102,7 +122,7 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -117,7 +137,7 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -132,22 +152,7 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
-						<figure class="product-box_image">
-							<img src="/images/products/default-image.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/productos/relojes">
+					<a href="http://localhost:3000/relojes">
 						<figure class="product-box_image">
 							<img src="/images/products/default-image.png" alt="cafetera moulinex">
 						</figure>

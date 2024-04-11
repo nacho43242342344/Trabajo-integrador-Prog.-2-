@@ -4,9 +4,6 @@ const foroController = {
     index:function(req,res){
         return res.render('index', { info:db.productos })
     },
-    header:function (req,res) {
-        return res.render('headerLogueado', { datos:db })
-    },
     login:function (req,res) {
         return res.render('login', { datos:db })
     },
@@ -21,17 +18,20 @@ const foroController = {
         return res.render('product', { datos:rta})
     },
     profile:function (req,res) {
-        return res.render('profile', { datos:db })
+        return res.render('profile', { datos:db.usuario })
     },
     register:function (req,res) {
         return res.render('register', { datos:db })
     },
     search:function (req,res) {
         return res.render('search-results', { datos:db })
+    },
+    productAdd:function(req,res){
+                return res.render('product-add', {datos:db })
+    },
+    profileEdit:function (req, res) {
+        return res.render('profile-edit', {datos:db })
     }
-    // productAdd:function(req,res){
-    //     return res.render('product-add', {})
-    // }
 }
 
 

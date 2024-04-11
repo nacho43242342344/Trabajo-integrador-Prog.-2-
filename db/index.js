@@ -6,7 +6,7 @@ let db ={
             contraseña: 'gero123',
             nacimiento: '2004-12-01',
             dni: '45892149',
-            foto_de_perfil: '/public/users/nachi.png',
+            foto_de_perfil: '/images/users/nachi.png',
         },
     productos: [
         {
