@@ -13,6 +13,7 @@ let db ={
             nombre: "Casio deportivo",
             descripcion: "El reloj deportivo Casio es duradero y funcional, ideal para actividades físicas. Con características como cronómetro y resistencia al agua, es perfecto para entrenamientos intensos.",
             imagen: '/images/products/casio-deportivo.jpg',
+            estado: 1,
             comentarios: [
                 {
                     nombreUsuario: "CR7",
