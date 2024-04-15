@@ -18,13 +18,14 @@ const foroController = {
         return res.render('product', { datos:rta})
     },
     profile:function (req,res) {
-        return res.render('profile', { datos:db.usuario })
+        return res.render('profile', { datos:db.usuario, prod:db.productos })
     },
     register:function (req,res) {
         return res.render('register', { datos:db })
     },
-    search:function (req,res) {
-        return res.render('search-results', { datos:db })
+    search: function(req, res) {
+        let nombreBusqueda = req.query.search; //obtiene el valor del parámetro de consulta llamado "search".
+        return res.render('search-results', { datos: db.productos, nombreBusqueda: nombreBusqueda });// nombreBusqueda seria nuestro termino de busqueda que el usuario ingreso y que se va a filtar
     },
     productAdd:function(req,res){
                 return res.render('product-add', {datos:db })

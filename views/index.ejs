@@ -31,6 +31,9 @@
 							<article class="product-box_data">
 								<h2><%= info[i].nombre%></h2>
 								<p><%= info[i].descripcion%></p>
+								<% if (info[i].comentarios.length > 0) { %>
+									<p>Comentarios: <%= info[i].comentarios.length %></p>
+								<% } %>
 							</article>
 						</a>
 					</section>
