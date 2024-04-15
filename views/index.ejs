@@ -9,7 +9,6 @@
 	
 	<!-- Banner -->
 	<div class="banner">
-		<img src="/images/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
 	<!-- /Banner -->
 
@@ -20,37 +19,8 @@
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<%for (let i = 0; i < info.length; i++) {%>		
-
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="http://localhost:3000/relojes/<%= info[i].nombre%>">
-							<figure class="product-box_image">
-								<img src="<%= info[i].imagen%>" alt="">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= info[i].nombre%></h2>
-								<p><%= info[i].descripcion%></p>
-								<% if (info[i].comentarios.length > 0) { %>
-									<p>Comentarios: <%= info[i].comentarios.length %></p>
-								<% } %>
-							</article>
-						</a>
-					</section>
-				</div>
-			<% }%>
-		</div>
-	</div>
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<%for (let i = 0; i < info.length; i++) {			
-				if (info[i].estado === 1 ){%>	
+			<%for (let i = 0; i < info.length; i++) {%>				
+				<%if (info[i].estado === 1 ){%>	
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="http://localhost:3000/relojes/<%= info[i].nombre%>">
@@ -70,8 +40,34 @@
 			<% }%>
 		</div>
 	</div>
-	<!-- /Más comentados -->
 
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Más comentados</h2>
+			</div>
+			<%for (let i = 0; i < info.length; i++) {	%>			
+				<%if (info[i].estado === 2 ){%>	
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="http://localhost:3000/relojes/<%= info[i].nombre%>">
+							<figure class="product-box_image">
+								<img src="<%= info[i].imagen%>" alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= info[i].nombre%></h2>
+								<p><%= info[i].descripcion%></p>
+								<% if (info[i].comentarios.length > 0) { %>
+									<p>Comentarios: <%= info[i].comentarios.length %></p>
+								<% }} %>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }%>
+		</div>
+	</div>
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>
