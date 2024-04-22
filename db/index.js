@@ -156,7 +156,7 @@ let db ={
             comentarios: [
                 {
                     nombreUsuario: "Trump",
-                    texto: "Con un reloj como este podria hacer que cualqioer nacion sea grande, es una finura, una excelencia ",
+                    texto: "Con un reloj como este podria hacer que cualquier nación sea grande, es una finura, una excelencia ",
                     imagenPerfil: "/images/users/Trump.jpg"  
                 },
                 {
@@ -184,7 +184,7 @@ let db ={
                 },
                 {
                     nombreUsuario: "Miley Cirus",
-                    texto: "Tanto en la quiebre como en mi mejor momento Patek siempre me apoyo, y hoy con esta marabilla me siento de nuevo en lo mas alto.",
+                    texto: "Tanto en la quiebre como en mi mejor momento Patek siempre me apoyo, y hoy con esta maravilla me siento de nuevo en lo mas alto.",
                     imagenPerfil: "/images/users/miley.jpg"   
                 },
                 {
@@ -207,7 +207,7 @@ let db ={
                 },
                 {
                     nombreUsuario: "Mirtha",
-                    texto: "Siempre me gutaron los hombres que venian a almorzar con un relog con malla de cuero, esto es una perfeccion. ",
+                    texto: "Siempre me gustaron los hombres que venian a almorzar con un reloj con malla de cuero, esto es una perfeccion. ",
                     imagenPerfil: "/images/users/MirthaLegrand.jpg"   
                 },
                 {
