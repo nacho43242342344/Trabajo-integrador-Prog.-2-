@@ -43,7 +43,7 @@ CREATE TABLE comentarios (
 );
 
 
---Inserción de los usuarios
+
 SELECT * FROM db_integrador.tabla_usuarios;
 
 INSERT INTO tabla_usuarios
@@ -59,9 +59,8 @@ INSERT INTO tabla_usuarios
 VALUES (DEFAULT, 'gactis@udesa.edu.com', 'Actis', 'gerito123', '2004-05-28', 49892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2023-12-01 10:00:00',	'2024-01-20 19:00:00', NULL);
 
 INSERT INTO tabla_usuarios
-VALUES (DEFAULT, 'nachito345@gmail.com', 'Nacho', 'nachota123', '2007-12-01', 50892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2024-02-29 23:59:59' '2024-02-29 23:59:59', '2024-02-29 23:59:59')
+VALUES (DEFAULT, 'nachito345@gmail.com', 'Nacho', 'nachota123', '2007-12-01', 50892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2024-02-29 23:59:59' '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
--- Inserción de los productos
 SELECT * FROM db_integrador.productos;
 
 INSERT INTO productos
@@ -93,8 +92,6 @@ VALUES (DEFAULT, 13,'https://th.bing.com/th/id/OIP.HwhqlfwLV2ktMBtD2oBMrQHaF7?rs
 
 INSERT INTO productos
 VALUES (DEFAULT, 12,'https://th.bing.com/th/id/OIP.-jbutvN_IP_okpTSgGux5wHaE7?rs=1&pid=ImgDetMain', 'Audemars Piguet Royal Oak', 'Descripción del Audemars Piguet Royal Oak.', '2024-04-10 09:15:00', '2024-04-10 10:00:00', NULL);
-
---Inseción de comentarios
 
 SELECT * FROM db_integrador.comentarios;
 
