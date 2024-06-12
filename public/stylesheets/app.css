@@ -451,7 +451,7 @@ hr {
 
 .error{
   color: rgb(209, 0, 0);
-  font-size: 1.4em;
+  margin-top: 0px;
 }
 
 textarea.form-input {

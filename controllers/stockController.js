@@ -1,4 +1,5 @@
-const db = require('../database/models')
+//const db = require('../database/models')
+const db = require("../db/index")
 
 const stockController = {
     search: function(req, res) {

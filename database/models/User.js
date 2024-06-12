@@ -15,7 +15,7 @@ module.exports = function(sequelize, dataTypes) {
         producto:{
             type: dataTypes.STRING(250),
         },
-        contraseña:{
+        password:{
             type: dataTypes.STRING(250),
         },
         nacimiento:{
@@ -27,20 +27,20 @@ module.exports = function(sequelize, dataTypes) {
         foto_de_perfil:{
             type: dataTypes.STRING(250),
         },
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
         },
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE,
         },
-        deletedAt:{
+        deleted_at:{
             type: dataTypes.DATE,
         }
     }
     let config = {
-        tableName: "tabla_usuario",
-        timestaps: false,
-        underscored: true
+        tableName: "tabla_usuarios",
+        underscored: true,
+        timestamps: true,
     }
     let User = sequelize.define(alias, cols, config);
 

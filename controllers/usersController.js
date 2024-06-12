@@ -1,36 +1,44 @@
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator')
+const data = require("../db/index")
 
 const usersController = {
     login:function (req,res) {
-        return res.render('login', { datos:db })
+        return res.render('login', { datos:data })
     },
     profile:function (req,res) {
-        return res.render('profile', { datos:db.usuario, prod:db.productos })
+        return res.render('profile', { datos:data.usuario, prod:data.productos })
     },
-    register:function (req,res) {
-        const registerValidation = validationResult(req)
-        if (registerValidation.isEmpty()) {
+    formulario: function (req,res) {
+        return res.render('register')
+    },
+    register:function (req, res) {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
             const user = {
-                name: req.body.name,
+                usuario: req.body.usuario,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10)
+                password: bcrypt.hashSync(req.body.password, 10),
+                fechaNacimiento: req.body.fechaNacimiento,
+                nroDocumento: req.body.nroDocumento,
+                nroDocumento: req.body.nroDocumento
             }
-        }else{
-            return res.render ('register', {errors: registerValidation.mapped(), old: req.body})
-        }
-            db.User
-                .create(user)
+            db.User.create(user)
                 .then(function (user) {
-                    return res.redirect("/login");
+                    req.session.user = user;
+                    return res.redirect("/");
                 })
-                .catch(function (error) {
+                .catch(function (err) {
                     console.log("Error al guardar el usuario", err)
                 })
+            console.log(user)
+        }else{
+            return res.render ('register', {errors: errors.mapped(), old: req.body})
+        }
     },
     profileEdit:function (req, res) {
-        return res.render('profile-edit', {datos:db })
+        return res.render('profile-edit', {datos:data })
     }
 }
 
