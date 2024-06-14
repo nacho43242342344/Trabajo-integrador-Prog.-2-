@@ -4,6 +4,7 @@ const db = require("../database/models")
 let registerValidation = [ 
     body('email') 
         .notEmpty().withMessage('Debe ingresar un mail').bail()
+        .isEmail().withMessage('Debes ingresar un formato de mail valido')
         .custom(function (value, {req}) {
             return db.User.findOne({
                 where: {email: value},

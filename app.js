@@ -33,12 +33,30 @@ app.use(function(req, res, next){
   console.log("estamos en session midelware")
   if(req.session.user != undefined){
     res.locals.user = req.session.user;
-    console.log("entre en locals");
-    console.log(res.locals);
     return next();
   } 
   return next();  
 })
+
+app.use(function(req, res, next){
+
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    let idDeLaCookie = req.cookies.userId;
+
+    db.User.findByPk(idDeLaCookie)
+    .then(user => {
+      console.log('Middleware de la cookie');
+      req.session.user = user;
+      res.locals.user = user;
+      return next()
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  } else {
+    return next()
+  }
+});
 
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -17,17 +17,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="http://localhost:3000/users/profile" method="get">
+				<form action="http://localhost:3000/users/profileValidation" method="POST" novalidate>
 					<div class="logInForm">
-						<label for="email">Usuario (correo electrónico):</label><br>
-						<input class="formCompletar" type="email" id="email" name="email"><br>
+						<label for="email">Correo electrónico:</label><br>
+						<input class="formCompletar" type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : "" %>"><br>
+						<% if (locals.errors && errors.email) {%>
+							<p class="error"><%= errors.email.msg %></p>
+						<% } %>
 					</div>
 					<div class="logInForm">
 						<label for="password">Contraseña:</label><br>
-						<input class="formCompletar" type="password" id="password" name="password"><br>
+						<input class="formCompletar" type="password" id="password" name="password" value="<%= locals.old !== undefined && old.password ? old.password : ""  %>"><br>
+						<% if (locals.errors && errors.password) {%>
+							<p class="error"><%= errors.password.msg %></p>
+						<% } %>
 					</div>
 					<div class="logInForm">
-						<input type="checkbox" id="remember" name="remember">
+						<input type="checkbox" id="remember" name="remember" value="ok">
 						<label class="formCompletar" for="remember">Recordarme</label><br>
 					</div>
 					<div>

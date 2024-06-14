@@ -17,7 +17,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2  class="col-12">
-				<form action="http://localhost:3000/users/addProfile" method="POST">
+				<form action="http://localhost:3000/users/addProfile" method="POST" novalidate>
 					<label for="email">Email:</label><br>
 					<input class="formCompletar" type="email" id="email" name="email" value="<%= locals.old !== undefined && old.email ? old.email : ""  %>"><br><br>
 					<% if (locals.errors && errors.email) {%>
