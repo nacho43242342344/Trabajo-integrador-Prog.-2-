@@ -67,6 +67,12 @@ const usersController = {
     },
     profileEdit:function (req, res) {
         return res.render('profile-edit', {datos:data })
+    },
+    logout: function (req, res) {
+        req.session.destroy();
+        res.clearCookie("userId")
+        return res.redirect("/")
+        
     }
 }
 
