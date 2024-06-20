@@ -1,20 +1,33 @@
 //const db = require('../database/models')
-const db = require("../db/index")
+const { Association } = require('sequelize');
+const db = require('../database/models')
+
 
 const mainController = {
-    index:function(req,res){
-        return res.render('index', { info:db.productos })
+    index: function(req, res) {
+        db.Product.findAll({
+            include: [{association: 'productos_usuarios'},{association: 'comentario_productos'}], 
+            order: [['created_at', 'DESC']] 
+        })
+            .then(function(data) {
+                console.log(data);
+                res.render('index', { info: data });
+            })
+            .catch(function(err) {
+                console.log(err);
+            });  
     },
     show:function (req,res) {
-        let rta;
-        let busquedaRelojes = req.params.idRelojes
-        for (let i = 0; i < db.productos.length; i++) {
-            if(busquedaRelojes.toLowerCase() === db.productos[i].nombre.toLowerCase()){
-                rta = db.productos[i]
-            };           
-        }
-        return res.render('product', {datos:rta})
-    },
-}
+        const id = req.params.id
+        db.Product.findByPk(id)
+            .then(function(data){
+                console.log(data);
+                res.render('product', {producto:data})
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+    }
+};
 
 module.exports = mainController;

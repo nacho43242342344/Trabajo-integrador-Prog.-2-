@@ -15,7 +15,7 @@ router.get('/register', usersController.formulario)
 
 router.post('/addProfile', registerValidation, usersController.register)
 
-router.get('/profile', usersController.pieroCrack)
+router.get('/profile/:id', usersController.pieroCrack)
 
 router.post('/logout', usersController.logout)
 

@@ -5,6 +5,6 @@ let mainController = require('../controllers/mainController')
 
 router.get('/', mainController.index)
 
-router.get('/relojes/:idRelojes', mainController.show)
+router.get('/relojes/:id', mainController.show)
 
 module.exports = router;
