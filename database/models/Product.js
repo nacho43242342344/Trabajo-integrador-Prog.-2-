@@ -24,13 +24,16 @@ module.exports= function (sequelize, dataTypes) {
         },
         updated_at:{
             type: dataTypes.DATE,
+            defaultValue: null
         },
         deleted_at:{
             type: dataTypes.DATE,
+            defaultValue: null
         }
     };
     let config = {
         tableName: "productos",
+        timestamps: true,
         underscored: true,
     }
     let Product = sequelize.define(alias, cols, config);

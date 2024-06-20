@@ -1,6 +1,7 @@
 const db = require('../database/models')
 //const db = require("../db/index")
 const seq = db.Sequelize.Op
+const {validationResult} = require("express-validator")
 
 const stockController = {
     search: function(req, res) {
@@ -33,8 +34,28 @@ const stockController = {
         return res.render('search-results', { datos: db.productos, nombreBusqueda: nombreBusqueda });// nombreBusqueda seria nuestro termino de busqueda que el usuario ingreso y que se va a filtar
     },*/
     productAdd:function(req,res){
-        return res.render('product-add', {datos:db })
+        const errors = validationResult(req)
+        if (errors.isEmpty()) {
+            const product = {
+                nombre_archivo_imagen: req.body.nombre_archivo_imagen,
+                nombre_producto: req.body.nombre_producto,
+                descripcion: req.body.descripcion,
+                usuario_id: req.session.user.id                
+            }
+            db.Product.create(product)
+                .then(function (product) {
+                    return res.render('product', {datos:product})
+                })
+                .catch(function (err) {
+                    console.log("Error al guardar el producto", err)
+                })
+        } else {
+            return res.render ('product-add', {errors: errors.mapped(), old: req.body})
+        }
     },
+    crear: function (req,res) {
+        return res.render("product-add")
+    }
 
 
     /*

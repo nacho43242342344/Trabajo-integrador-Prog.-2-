@@ -13,7 +13,7 @@ const mainController = {
                 rta = db.productos[i]
             };           
         }
-        return res.render('product', { datos:rta})
+        return res.render('product', {datos:rta})
     },
 }
 

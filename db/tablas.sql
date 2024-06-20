@@ -6,13 +6,13 @@ CREATE TABLE tabla_usuarios (
     id             INT           UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     email          VARCHAR(250)  NOT NULL,
     usuario        VARCHAR(250)  NOT NULL,
-    contraseña     VARCHAR(250)  NOT NULL,
+    password     VARCHAR(250)  NOT NULL,
     nacimiento     DATE          NOT NULL,
 	dni            INT           NOT NULL,
 	foto_de_perfil VARCHAR(250)  NOT NULL,
-    createdAt      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
-    updatedAt      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt      TIMESTAMP     ON UPDATE CURRENT_TIMESTAMP NULL
+    created_at      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at      TIMESTAMP     ON UPDATE CURRENT_TIMESTAMP NULL
 );
 
 -- Creación de la tabla de productos
@@ -22,10 +22,10 @@ CREATE TABLE productos (
     nombre_archivo_imagen VARCHAR(255)  NOT NULL,
     nombre_producto       VARCHAR(255)  NOT NULL,
     descripcion           TEXT          NOT NULL,
-    createdAt             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
-    updatedAt             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    created_at             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
+    updated_at             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at             TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES tabla_usuarios(id)
 );
 
 -- Creación de la tabla de comentarios
@@ -34,14 +34,12 @@ CREATE TABLE comentarios (
     producto_id      INT       UNSIGNED,
     usuario_id       INT       UNSIGNED,
     texto_comentario TEXT      NOT NULL,
-    createdAt        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt        TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (producto_id) REFERENCES productos(id),
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+	FOREIGN KEY (usuario_id) REFERENCES tabla_usuarios(id)
 );
-
-
 
 SELECT * FROM db_integrador.tabla_usuarios;
 
@@ -58,7 +56,7 @@ INSERT INTO tabla_usuarios
 VALUES (DEFAULT, 'gactis@udesa.edu.com', 'Actis', 'gerito123', '2004-05-28', 49892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2023-12-01 10:00:00',	'2024-01-20 19:00:00', NULL);
 
 INSERT INTO tabla_usuarios
-VALUES (DEFAULT, 'nachito345@gmail.com', 'Nacho', 'nachota123', '2007-12-01', 50892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2024-02-29 23:59:59' '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 'nachito345@gmail.com', 'Nacho', 'nachota123', '2007-12-01', 50892149, 'https://as2.ftcdn.net/v2/jpg/02/13/59/51/1000_F_213595138_QiDlxrtSWGBSj3q5JsjGohaNsF9vdtft.jpg', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 SELECT * FROM db_integrador.productos;
 
@@ -95,91 +93,91 @@ VALUES (DEFAULT, 12,'https://th.bing.com/th/id/OIP.-jbutvN_IP_okpTSgGux5wHaE7?rs
 SELECT * FROM db_integrador.comentarios;
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 1, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 13, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 1, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 13, 10, 'Muy alta calidad, las oilas duran poco, pero te viste muy formal', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 1, 11, 'Buena relación calidad-precio. Es muy elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 13, 11, 'Buena relación calidad-precio. Es muy elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 2, 12, 'Me encanta el diseño y la funcionalidad. Lo uso a diario y no he tenido problemas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 14, 12, 'Me encanta el diseño y la funcionalidad. Lo uso a diario y no he tenido problemas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 2, 13, 'No es resistente al agua como se indica. Decepcionado con la calidad.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 14, 13, 'No es resistente al agua como se indica. Decepcionado con la calidad.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 2, 14, 'Mala calidad. La correa se rompió después de un mes de uso.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 14, 14, 'Mala calidad. La correa se rompió después de un mes de uso.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 3, 10, 'Excelente producto. Cumple con todas mis expectativas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 15, 10, 'Excelente producto. Cumple con todas mis expectativas.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 3, 11, 'El color no coincide con la imagen. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 15, 11, 'El color no coincide con la imagen. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 3, 12, 'Buen reloj, pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 15, 12, 'Buen reloj, pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 4, 13, 'Me gustó mucho. Es ligero y se ajusta bien a la muñeca.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 16, 13, 'Me gustó mucho. Es ligero y se ajusta bien a la muñeca.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 4, 14, 'No he recibido el producto. El servicio de entrega es muy lento.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 16, 14, 'No he recibido el producto. El servicio de entrega es muy lento.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 4, 10, 'Muy buen reloj. Lo recomiendo.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 16, 10, 'Muy buen reloj. Lo recomiendo.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 5, 11, 'El diseño es elegante pero la correa es un poco rígida.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 17, 11, 'El diseño es elegante pero la correa es un poco rígida.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 5, 12, 'Excelente calidad. El reloj es resistente y funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 17, 12, 'Excelente calidad. El reloj es resistente y funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 5, 13, 'No estoy contento con el producto. No funciona correctamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 17, 13, 'No estoy contento con el producto. No funciona correctamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 6, 14, 'Me encanta. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 18, 14, 'Me encanta. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 6, 10, 'Buena relación calidad-precio. Lo uso todos los días y estoy satisfecho.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 18, 10, 'Buena relación calidad-precio. Lo uso todos los días y estoy satisfecho.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 6, 11, 'El reloj es bonito pero la correa es un poco frágil.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 18, 11, 'El reloj es bonito pero la correa es un poco frágil.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 7, 12, 'No era lo que esperaba. La calidad no es la mejor.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 19, 12, 'No era lo que esperaba. La calidad no es la mejor.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 7, 13, 'El producto llegó en mal estado. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 19, 13, 'El producto llegó en mal estado. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 7, 14, 'Excelente reloj. Funciona perfectamente y tiene un diseño elegante.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 19, 14, 'Excelente reloj. Funciona perfectamente y tiene un diseño elegante.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 8, 10, 'Me gusta mucho. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 20, 10, 'Me gusta mucho. Es elegante y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 8, 11, 'Buena calidad. Funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 20, 11, 'Buena calidad. Funciona perfectamente.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 8, 12, 'No cumple mis expectativas. La calidad no es la esperada.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 20, 12, 'No cumple mis expectativas. La calidad no es la esperada.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 9, 13, 'El diseño es bonito pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 21, 13, 'El diseño es bonito pero la correa es un poco incómoda.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 9, 14, 'Me encanta. Es exactamente lo que estaba buscando.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 21, 14, 'Me encanta. Es exactamente lo que estaba buscando.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 9, 10, 'El reloj es elegante y funcional. Lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 21, 10, 'El reloj es elegante y funcional. Lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 10, 11, 'No estoy contento con la calidad del producto. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 22, 11, 'No estoy contento con la calidad del producto. No lo recomendaría.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 10, 12, 'Me gusta mucho el diseño. Es ligero y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
+VALUES (DEFAULT, 22, 12, 'Me gusta mucho el diseño. Es ligero y cómodo de llevar.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', NULL);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, 10, 13, 'El producto no funciona correctamente. No estoy satisfecho con la compra.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');
+VALUES (DEFAULT, 22, 13, 'El producto no funciona correctamente. No estoy satisfecho con la compra.', '2024-02-29 23:59:59', '2024-02-29 23:59:59', '2024-02-29 23:59:59');

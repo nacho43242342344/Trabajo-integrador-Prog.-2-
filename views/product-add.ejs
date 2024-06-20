@@ -21,15 +21,24 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="http://localhost:3000/users/profile" method="get">
-					<label for="fotoProducto">Foto del Producto:</label><br>
-  					<input class="formCompletar" type="file" id="fotoProducto" name="fotoProducto" required><br><br>
+				<form action="http://localhost:3000/stock/add" method="POST">
+					<label for="nombre_archivo_imagen">Foto del Producto:</label><br>
+  					<input class="formCompletar" type="text" id="nombre_archivo_imagen" name="nombre_archivo_imagen" value="<%= locals.old !== undefined && old.nombre_archivo_imagen ? old.nombre_archivo_imagen: "" %>"><br><br>
+					<% if (locals.errors && errors.nombre_archivo_imagen) { %>
+						<p class="error"><%= errors.nombre_archivo_imagen.msg%></p>
+					<% } %>
 
-					<label for="producto">Nombre del Producto:</label><br>
-					<input class="formCompletar" type="text" id="usuario" name="usuario" required><br><br>
+					<label for="nombre_producto">Nombre del Producto:</label><br>
+					<input class="formCompletar" type="text" id="nombre_producto" name="nombre_producto" value="<%= locals.old !== undefined && old.nombre_producto ? old.nombre_producto: "" %>"><br><br>
+					<% if (locals.errors && errors.nombre_producto) { %>
+						<p class="error"><%= errors.nombre_producto.msg%></p>
+					<% } %>
 
 					<label for="descripcion">Descripción:</label><br>
-					<input class="formCompletar" type="text" id="descripcion" name="descripcion" required><br><br>
+					<input class="formCompletar" type="text" id="descripcion" name="descripcion" value="<%= locals.old !== undefined && old.descripcion ? old.descripcion: "" %>"><br><br>
+					<% if (locals.errors && errors.descripcion) { %>
+						<p class="error"><%= errors.descripcion.msg%></p>
+					<% } %>
 
 					<input class="botonForm" type="submit" value="Agregar producto">
 				</form>
