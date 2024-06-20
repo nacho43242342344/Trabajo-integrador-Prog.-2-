@@ -12,9 +12,6 @@ module.exports = function(sequelize, dataTypes) {
         usuario:{
             type: dataTypes.STRING(250),
         },
-        producto:{
-            type: dataTypes.STRING(250),
-        },
         password:{
             type: dataTypes.STRING(250),
         },
@@ -46,11 +43,11 @@ module.exports = function(sequelize, dataTypes) {
 
     User.associate = function (models) {
         User.hasMany(models.Product, {
-            as: "product",
+            as: "productos",
             foreignKey: "usuario_id"
         });
         User.hasMany(models.Comment, {
-            as: "comment",
+            as: "comentarios",
             foreignKey: "usuario_id"
         })
     }

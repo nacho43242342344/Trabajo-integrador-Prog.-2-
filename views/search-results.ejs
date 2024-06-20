@@ -19,35 +19,41 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
-			<% let productosEncontrados = false; %> <!-- creo la variable para que se fije si existen productos que coincidan con la busqueda -->
-			<% for (let i = 0; i < datos.length; i++) { %>
-				<% let nombreProducto = datos[i].nombre.toLowerCase(); %>
-				<% let busqueda = nombreBusqueda.toLowerCase(); %>
-				<% if (nombreProducto.includes(busqueda)) { %> <!-- filtra -->
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="http://localhost:3000/relojes/<%= datos[i].nombre %>">
-								<figure class="product-box_image">
-									<img src="<%= datos[i].imagen %>" alt="">
-								</figure>
-								<article class="product-box_data">
-									<h2><%= datos[i].nombre %></h2>
-									<p><%= datos[i].descripcion %></p>
-									<% if (datos[i].comentarios.length > 0) { %>
-										<p>Comentarios: <%= datos[i].comentarios.length %></p>
-									<% } %>
-								</article>
-							</a>
-						</section>
-					</div>
-					<% productosEncontrados = true; %> <!-- creo la variable para que se fije si existen productos que coincidan con la busqueda -->
+			<% // let productosEncontrados = false; %> <!-- creo la variable para que se fije si existen productos que coincidan con la busqueda -->
+			<% if (data) { %>
+				<% for (let i = 0; i < data.length; i++) { %>
+					<%// let nombreProducto = datos[i].nombre.toLowerCase(); %>
+					<%// let busqueda = nombreBusqueda.toLowerCase(); %>
+					<% //if (nombreProducto.includes(busqueda)) { %> <!-- filtra -->
+						<div class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="http://localhost:3000/relojes/<%= data[i].nombre %>">
+									<figure class="product-box_image">
+										<img src="<%= data[i].nombre_archivo_imagen %>" alt="">
+									</figure>
+									<article class="product-box_data">
+										<h2><%= data[i].nombre_producto %></h2>
+										<p><%= data[i].descripcion %></p>
+										<% if (data[i].Comment.length > 0) { %>
+											<p>Comentarios: <%=data[i].comentarios.length %></p>
+										<% } %>
+									</article>
+								</a>
+							</section>
+						</div>
+						<%// productosEncontrados = true; %> <!-- creo la variable para que se fije si existen productos que coincidan con la busqueda -->
+					<% //} %>
 				<% } %>
-			<% } %>
-			<% if (!productosEncontrados) { %> <!-- si no hay producto que coincida con lo que se busco -->
+			<% } %> <% else { %>
 				<div class="col-12">
 					<p><b>Ese producto no está en stock. Ingrese un nombre válido por favor.</b></p>
 				</div>
 			<% } %>
+			<% //if (!productosEncontrados) { %> <!-- si no hay producto que coincida con lo que se busco -->
+			 <!--<div class="col-12"> -->
+					<!--<p><b>Ese producto no está en stock. Ingrese un nombre válido por favor.</b></p> -->
+				<!--</div> -->
+			<% //} %>
 		</div>
 	</div>
 	

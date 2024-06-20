@@ -6,7 +6,7 @@ module.exports = function(sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        post_id: {
+        producto_id: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
@@ -28,7 +28,7 @@ module.exports = function(sequelize, dataTypes) {
         }
     };
     let config = {
-        tableName: "tabla_comment",
+        tableName: "comentarios",
         timestamps: true,
         underscored: true
     };
@@ -36,12 +36,12 @@ module.exports = function(sequelize, dataTypes) {
 
     Comment.associate = function(models) {
         Comment.belongsTo(models.User, {
-            as: "user",
+            as: "usuarios",
             foreignKey: "usuario_id"
         });
         Comment.belongsTo(models.Product, {
-            as: 'product', 
-            foreignKey: 'post_id'
+            as: 'productos', 
+            foreignKey: 'producto_id'
         });
     };
 

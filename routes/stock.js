@@ -5,6 +5,6 @@ let stockController = require('../controllers/stockController')
 
 router.get('/add', stockController.productAdd)
 
-router.get('/search-results', stockController.search)
+router.get('/search', stockController.search)
 
 module.exports = router;
