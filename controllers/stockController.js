@@ -54,8 +54,46 @@ const stockController = {
         }
     },
     crear: function (req,res) {
-        return res.render("product-add")
-    }
+        return res.render("product-add", {titulo: "Agregar productos"})
+    },
+    edit: function(req, res){
+        id = req.params.id
+        db.Product.findByPk(id, {
+            include: [{association: 'productos_usuarios'}]
+        }
+
+        )
+            .then(function(data){
+                res.render("product-edit", {producto: data, titulo: "Editar producto"})      
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        },
+        editProduct: function(req, res){
+            const errors = validationResult(req)
+            if (errors.isEmpty()) {
+                const product = {
+                    nombre_archivo_imagen: req.body.nombre_archivo_imagen,
+                    nombre_producto: req.body.nombre_producto,
+                    descripcion: req.body.descripcion,
+                    usuario_id: req.session.user_id                
+                }
+                db.Product.update(product, {
+                    where: {id: req.params.id}
+                }
+                )
+                    .then(function (product) {
+                        const idProd = req.params.id
+                        res.redirect(`/relojes/${idProd}`)
+                    })
+                    .catch(function (err) {
+                        console.log("Error al editar el producto", err)
+                    })
+            } else {
+                return res.render ('product-edit', {errors: errors.mapped(), producto: req.body})
+            }
+        }
 
 
     /*

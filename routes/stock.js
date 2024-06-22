@@ -10,4 +10,8 @@ router.get("/addProd", stockController.crear)
 
 router.get('/search', stockController.search)
 
+router.get("/edit/:id", stockController.edit)
+
+router.post("/editprod/:id", productAddValidation, stockController.editProduct)
+
 module.exports = router;

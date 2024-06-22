@@ -19,7 +19,10 @@ const mainController = {
     },
     show:function (req,res) {
         const id = req.params.id
-        db.Product.findByPk(id)
+        db.Product.findByPk(id, {
+            include: [{association: 'productos_usuarios'}]
+        }
+        )
             .then(function(data){
                 console.log(data);
                 res.render('product', {producto:data})
