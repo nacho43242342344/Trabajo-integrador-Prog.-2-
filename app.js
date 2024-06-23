@@ -30,7 +30,7 @@ app.use(session(
 ));
 
 app.use(function(req, res, next){
-  console.log("estamos en session midelware")
+  //console.log("estamos en session midelware")
   if(req.session.user != undefined){
     res.locals.user = req.session.user;
     return next();

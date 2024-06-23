@@ -9,21 +9,21 @@ const stockController = {
         db.Product.findAll({
             where :{
                 [seq.or]: [ // comando or para que sea una regla o la otra.
-                    {descripcion: {[seq.like]: req.query.search}},
-                    {nombre_producto: {[seq.like]: req.query.search}}                    
+                    {descripcion: {[seq.like]: `%${req.query.search}%`}},
+                    {nombre_producto: {[seq.like]: `%${req.query.search}%`}}                    
                 ]
             },
             order: [['created_at', 'DESC']], // para el orden descendente de lo ultimo que se agrega.
 
             include: [ // usamos los alias de los modelos.
-                {association: 'usuarios'}
+                {association: 'productos_usuarios'}
             ]
         })
         
             .then(function (data) {
-                console.log(data)
-            return res.send(data)
-                return res.render('search-results', {data: data});} 
+                //console.log(data)
+            //return res.send(data)
+            return res.render('search-results', {productos: data});} 
                 )
             .catch(function (err) {
                 return console.log(err);
