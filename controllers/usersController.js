@@ -10,6 +10,42 @@ const usersController = {
     index: function(req, res){
         return res.render('profile')
     },
+    profile: function (req, res) {
+         
+        users.findByPk(req.params.id, {
+
+          include: [{association: 'productos_usuarios',
+              include: [{ association: 'usuarios_comentario' }
+              ],}
+          ],
+    
+        }
+        )
+          .then(function (resul) {
+            db.Product.findAll({
+              where: { 
+                id_usuario: req.params.id },
+              order: [
+                ['created_at', 'DESC']
+            ],
+              include: [
+                { association: 'comentario' }
+              ]
+            })
+              .then(function (data) {
+                return res.render('profile', { resul: resul, data: data })
+              })          
+              .catch(function (err) {
+                console.log(err);
+              })
+    
+          })
+          .catch(function (err) {
+            console.log(err);
+          })
+      },
+        
+   /*
     profile:function (req,res) {
         const resultValidation = validationResult(req)
 
@@ -34,7 +70,7 @@ const usersController = {
             })
 
         }
-    },
+    },*/
     formulario: function (req,res) {
         return res.render('register')
     },
