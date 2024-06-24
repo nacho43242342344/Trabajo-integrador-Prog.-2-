@@ -45,7 +45,6 @@ app.use(function(req, res, next){
 
     db.User.findByPk(idDeLaCookie)
     .then(user => {
-      console.log('Middleware de la cookie');
       req.session.user = user;
       res.locals.user = user;
       return next()

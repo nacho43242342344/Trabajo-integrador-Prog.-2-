@@ -15,9 +15,9 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%-producto.nombre_producto%></h2> 
-			<% if (locals.user != undefined && locals.user.id === producto.productos_usuarios.id) { %>
+			<% if (locals.user != undefined && locals.user.id === producto.usuario_id) { %>
 				<p class="product-detail-description">
-					<a href="http://localhost:3000/stock/edit/<%= producto.id %>">Editar</a>
+					<a href="http://localhost:3000/stock/edit/<%= producto.usuario_id %>">Editar</a>
 				</p>
 			<% } %>
 		</div>

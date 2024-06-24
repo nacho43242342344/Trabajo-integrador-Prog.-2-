@@ -28,23 +28,23 @@ const stockController = {
             .catch(function (err) {
                 return console.log(err);
             })        
-    },/*
-    search: function(req, res) {
-        let nombreBusqueda = req.query.search; //obtiene el valor del parámetro de consulta llamado "search".
-        return res.render('search-results', { datos: db.productos, nombreBusqueda: nombreBusqueda });// nombreBusqueda seria nuestro termino de busqueda que el usuario ingreso y que se va a filtar
-    },*/
+    },
     productAdd:function(req,res){
         const errors = validationResult(req)
         if (errors.isEmpty()) {
+            console.log("esta es la sección", req.session.user)
             const product = {
                 nombre_archivo_imagen: req.body.nombre_archivo_imagen,
                 nombre_producto: req.body.nombre_producto,
                 descripcion: req.body.descripcion,
-                usuario_id: req.session.user.id                
+                usuario_id: req.session.user.id,
+                productos_usuarios: req.session.user,         
             }
+            console.log("aca esta el productttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
+            console.log(product)
             db.Product.create(product)
                 .then(function (product) {
-                    return res.render('product', {datos:product})
+                    return res.render('product', {producto:product})
                 })
                 .catch(function (err) {
                     console.log("Error al guardar el producto", err)
@@ -64,6 +64,7 @@ const stockController = {
 
         )
             .then(function(data){
+                //console.log("este es el producto a editar", data);
                 res.render("product-edit", {producto: data, titulo: "Editar producto"})      
             })
             .catch(function(error){
@@ -94,43 +95,7 @@ const stockController = {
                 return res.render ('product-edit', {errors: errors.mapped(), producto: req.body})
             }
         }
-
-
-    /*
-    show: function (req, res) {
-        const id = req.params.id;
-        db.Products.findByPk(id)
-        .then(function (data) {
-            res.render("product", {product: data})
-            // console.log(data);
-            
-        })
-        .catch( function (err) {
-            console.log(err);
-            
-        })
-        
-    },
-    new: function (req, res) {
-        db.Product.findAll({
-            order:[
-                ['created_at', 'DESC']
-            ]
-        })
-        .then(function (data) {
-            return res.render()            
-        })
-        .catch(function name(params) {
-            
-        })
-        
-    },*/
-    
-
-
-
-
-    
+  
 }
 
 

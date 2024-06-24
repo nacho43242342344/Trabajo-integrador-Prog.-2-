@@ -45,22 +45,22 @@ const usersController = {
           })
       },
         
-   /*
-    profile:function (req,res) {
+   
+    profileL:function (req,res) {
         const resultValidation = validationResult(req)
 
         if(!resultValidation.isEmpty()){
-            console.log('resultValidation', JSON.stringify(resultValidation, null, 4));
+            //console.log('resultValidation', JSON.stringify(resultValidation, null, 4));
             return res.render('login', { errors: resultValidation.mapped(), old: req.body })
         } else {
             db.User.findOne({
                 where: [{email: req.body.email}]
             })
             .then(function (user) {
+                console.log("aca esta el usuario", user);
                 req.session.user = user;
-
                 if(req.body.remember != undefined) {
-                    res.cookie('userId', user.id, {maxAge: 1000 * 60 * 2})
+                    res.cookie('userId', user.id, {maxAge: 1000 * 60 * 180})
                     console.log('cookie establecida', user.id);
                 }
                 return res.redirect('/');
@@ -70,7 +70,7 @@ const usersController = {
             })
 
         }
-    },*/
+    },
     formulario: function (req,res) {
         return res.render('register')
     },

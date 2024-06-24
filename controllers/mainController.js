@@ -10,7 +10,8 @@ const mainController = {
             order: [['created_at', 'DESC']] 
         })
             .then(function(data) {
-                console.log(data);
+                console.log("1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
+                console.log(data)
                 res.render('index', { info: data });
             })
             .catch(function(err) {
@@ -24,7 +25,6 @@ const mainController = {
         }
         )
             .then(function(data){
-                console.log(data);
                 res.render('product', {producto:data})
             })
             .catch(function(err){

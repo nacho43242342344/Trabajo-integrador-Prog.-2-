@@ -5,7 +5,7 @@ let usersController = require('../controllers/usersController');
 const registerValidation = require('../middleware/register-validation');
 const loginValidation = require('../middleware/login-validation');
 
-router.post('/profileValidation', loginValidation, usersController.profile)
+router.post('/profileValidation', loginValidation, usersController.profileL)
 
 router.get('/profile-edit', usersController.profileEdit)
 
