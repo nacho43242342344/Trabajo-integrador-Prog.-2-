@@ -12,6 +12,8 @@ router.get('/search', stockController.search)
 
 router.get("/edit/:id", stockController.edit)
 
+router.get("/borrar/:id", stockController.borrar)
+
 router.post("/editprod/:id", productAddValidation, stockController.editProduct)
 
 module.exports = router;

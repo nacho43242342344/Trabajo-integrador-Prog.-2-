@@ -19,6 +19,9 @@
 				<p class="product-detail-description">
 					<a href="http://localhost:3000/stock/edit/<%= producto.usuario_id %>">Editar</a>
 				</p>
+				<p class="product-detail-description">
+					<a href="http://localhost:3000/stock/borrar/<%= producto.usuario_id %>">Borrar</a>
+				</p>
 			<% } %>
 		</div>
 		<div class="product-detail">
@@ -31,16 +34,16 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<!-- <% //for (let i = 0; i < producto.comentarios.length; i++) {%>
+						 <% for (let i = 0; i < coment.length; i++) {%>
 							<article>
-								<img src="<%= //producto.comentarios[i].imagenPerfil%>" alt="">
+								<img src="<%= coment[i].usuarios_comentario.foto_de_perfil%>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="http://localhost:3000/users/profile"><%-//producto.comentarios[i].nombreUsuario %></a> </strong>
-									<p><%=//producto.comentarios[i].texto%> </p>
+									<strong> <a href="http://localhost:3000/users/profile"><%-coment[i].usuarios_comentario.usuario %></a> </strong>
+									<p><%=coment[i].texto_comentario%> </p>
 								</div>
 							</article>
-						<% //} %> -->
+						<% } %> 
 					</section>
 					<form class="form" action="http://localhost:3000" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">

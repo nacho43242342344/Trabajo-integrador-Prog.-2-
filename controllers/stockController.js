@@ -43,7 +43,7 @@ const stockController = {
 
             db.Product.create(product)
                 .then(function (product) {
-                    return res.render('product', {producto:product})
+                    return res.redirect("/")
                 })
                 .catch(function (err) {
                     console.log("Error al guardar el producto", err)
@@ -93,8 +93,19 @@ const stockController = {
             } else {
                 return res.render ('product-edit', {errors: errors.mapped(), producto: req.body})
             }
+        },
+        borrar: function(req, res){
+            const idProducto = req.params.id
+            db.Product.destroy({
+                where: {id: idProducto}
+            })
+                .then(function(data){
+                    res.redirect("/")
+            })
+                .catch(function(error){
+                    console.log(error)
+            })
         }
-  
 }
 
 

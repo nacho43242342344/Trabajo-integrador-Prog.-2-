@@ -40,8 +40,8 @@
 				<b><h1>HOLA <%=locals.user.usuario.toUpperCase()%>, ¡BIENVENIDO!</h1></b><br>
 				<ul class="right-navbar">
 					<li> 
-						<a href="http://localhost:3000/users/profile">
-							Mi perfil <i class="fas fa-user"></i>
+						<a href="http://localhost:3000/users/profile/<%=locals.user.id%>">
+							Mi perfil <i class="fas fa-user"></i> 
 						</a>
 					</li>
 					<li>

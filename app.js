@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session =require("express-session")
+const db = require("./database/models")
 
 var stockRouter = require('./routes/stock');
 var usersRouter = require('./routes/users');

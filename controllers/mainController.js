@@ -23,7 +23,16 @@ const mainController = {
         }
         )
             .then(function(data){
-                res.render('product', {producto:data})
+                db.Comment.findAll(
+                    {where: {producto_id: data.id},
+                    include:[{association: "usuarios_comentario"}] }
+                )
+                    .then(function(info){
+                        res.render('product', {producto:data, coment: info})
+                    })
+                    .catch(function(error){
+                        console.log(error)
+                    })
             })
             .catch(function(err){
                 console.log(err);
