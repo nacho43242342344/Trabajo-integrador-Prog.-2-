@@ -33,7 +33,7 @@
 				</div>
 				<div>
 					<ul class="">
-						<li>8 productos</li> <% // esto no tiene que estar mas hardcodeado %>
+						<li><%= prod.length %> productos</li> <% // esto no tiene que estar mas hardcodeado %>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -54,14 +54,14 @@
 				<%for (let i = 2; i < prod.length; i++) {%>	
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="http://localhost:3000/relojes/<%= prod[i].nombre%>">
+							<a href="http://localhost:3000/relojes/<%= prod[i].id%>">
 								<figure class="product-box_image">
 									<img src="<%= prod[i].imagen%>" alt="cafetera moulinex">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= prod[i].nombre %></h2>
 									<p><%= prod[i].descripcion %></p>
-									<% if (prod[i].comentarios.length > 0) { %>
+									<% if (prod[i].comentario_productos.length > 0) { %>
 										<p>Comentarios: <%= prod[i].comentarios.length %></p>
 									<% } %>
 								</article>

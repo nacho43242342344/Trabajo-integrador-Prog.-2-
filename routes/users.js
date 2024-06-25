@@ -17,6 +17,8 @@ router.post('/addProfile', registerValidation, usersController.register)
 
 router.get('/profile/:id', usersController.pieroCrack)
 
-router.post('/logout', usersController.logout)
+router.post('/logout', usersController.logout);
+
+
 
 module.exports = router;

@@ -40,8 +40,7 @@ const stockController = {
                 usuario_id: req.session.user.id,
                 productos_usuarios: req.session.user,         
             }
-            console.log("aca esta el productttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
-            console.log(product)
+
             db.Product.create(product)
                 .then(function (product) {
                     return res.render('product', {producto:product})

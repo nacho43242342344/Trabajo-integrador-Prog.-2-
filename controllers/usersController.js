@@ -99,7 +99,29 @@ const usersController = {
         }
     },
     pieroCrack:function (req, res) {
-        return res.render('profile', {datos:data.usuario, prod:data.productos})
+        const id = req.params.id
+        console.log(id)
+        db.User.findByPk(id,
+            { include: [{association: "productos_usuarios"}]}
+        )
+            .then(function(data){
+                db.Product.findAll({
+                    where: {usuario_id: data.id},
+                    include: [{association: 'comentario_productos'}]
+                })
+                    .then(function(info){
+                        console.log(data)
+                        console.log(info)
+                        res.render('profile', {datos: data, prod: info})
+                    })
+                    .catch(function(error){
+                        console.log(error)
+                    })
+        
+                })
+            .catch(function(error){
+                console.log(error)
+            })
     },
     profileEdit:function (req, res) {
         return res.render('profile-edit', {datos:data })
